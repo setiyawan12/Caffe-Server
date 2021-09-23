@@ -25,8 +25,8 @@ class MidtransController extends Controller
         
         // Populate customer's shipping address
         $shipping_address = array(
-            'first_name'   => "John",
-            'last_name'    => "Watson",
+            'first_name'   => "yayangku",
+            'last_name'    => "setiyawan",
             'address'      => "Bakerstreet 221B.",
             'city'         => "Jakarta",
             'postal_code'  => "51162",
@@ -36,27 +36,40 @@ class MidtransController extends Controller
         
         // Populate customer's info
         $customer_details = array(
-            'first_name'       => "Andri",
-            'last_name'        => "Setiawan",
-            'email'            => "test@test.com",
-            'phone'            => "081322311801",
-            'billing_address'  => $billing_address,
-            'shipping_address' => $shipping_address
+          "first_name"  => "TEST",
+          "last_name" => "MIDTRANSER",
+          "email" => "noreply@example.com",
+          "phone" => "+628123456",
+          "address" =>"Tegal"
+            // 'billing_address'  => $billing_address,
+            // 'shipping_address' => $shipping_address
           );
-
         $params = array(
             'transaction_details' => $request->transaction_details,
             'item_details' => $request->item_details,
-            'customer_details' => $request->$customer_details
+            'customer_details'=>$customer_details,
+            'shipping_address'=>$shipping_address,
+            'billing_address'=>$billing_address
+
         );
-        
+
+        try {
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         $paymentUrl = \Midtrans\Snap::createTransaction($params)->redirect_url;
-        
-        
-        return response()->json([
+
+          return response()->json([
             "token" => $snapToken,
             "redirect_url" => $paymentUrl
+            
         ]);
+        } catch (\Throwable $th) {
+
+          return response()->json([
+            "message" => $th->getMessage(),
+          ]);
+          //throw $th;
+        }
+      
+        // return response()->json($params);
     }
 }
