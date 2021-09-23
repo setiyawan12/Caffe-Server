@@ -40,8 +40,8 @@ class MidtransController extends Controller
             'last_name'        => "Setiawan",
             'email'            => "test@test.com",
             'phone'            => "081322311801",
-            'billing_address'  => [$billing_address],
-            'shipping_address' => [$shipping_address]
+            'billing_address'  => $billing_address,
+            'shipping_address' => $shipping_address
           );
 
         $params = array(
