@@ -18,4 +18,17 @@ class ProdukController extends Controller
             ]
             );
     }
+
+    public function getId($id){
+        $data = Produk::where('category_id',$id)->get();
+        if (count($data)>0) {
+            $res['message'] = "Success!";
+            $res['values'] = $data;
+            return response($res);
+        } else {
+            $res['message'] = "Failed!";
+            return response($res);
+        }
+        
+    }
 }

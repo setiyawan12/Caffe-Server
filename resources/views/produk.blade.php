@@ -93,11 +93,10 @@
                       <div class="form-group">
                         <label>Pilih Category</label>
                         <select class="form-control" name="category_id">
-                          <option value="1">option 1</option>
-                          <option value="1">option 2</option>
-                          <option value="1">option 3</option>
-                          <option value="1">option 4</option>
-                          <option value="1">option 5</option>
+                          <option {{ $data->category_id }} value="1">Food</option>
+                          <option {{ $data->category_id }} value="2">Drink</option>
+                          <option {{ $data->category_id }} value="3">Snack</option>
+                          <option {{ $data->category_id }} value="4">Coffe</option>
                         </select>
                       </div>
                     </div>
