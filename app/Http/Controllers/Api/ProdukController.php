@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Produk;
@@ -22,13 +21,13 @@ class ProdukController extends Controller
     public function getId($id){
         $data = Produk::where('category_id',$id)->get();
         if (count($data)>0) {
-            $res['message'] = "Success!";
-            $res['values'] = $data;
+            $res['success']  = true;
+            $res['message'] = "get category berhasil";
+            $res['data'] = $data;
             return response($res);
         } else {
             $res['message'] = "Failed!";
             return response($res);
         }
-        
     }
 }
