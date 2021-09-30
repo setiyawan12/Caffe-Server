@@ -61,8 +61,7 @@
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
                                   </form>
-                                    <button onclick="deleteRow({{ $data->id }})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</button>
-                                
+                                    <button onclick="deleteRow({{ $data->id }})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</button>   
                             </td>
                         </td>
                     </tr>
@@ -102,10 +101,10 @@
                       <div class="form-group">
                         <label>Pilih Category</label>
                         <select class="form-control" name="category_id">
-                          <option {{ $data->category_id }} value="1">Food</option>
-                          <option {{ $data->category_id }} value="2">Drink</option>
-                          <option {{ $data->category_id }} value="3">Snack</option>
-                          <option {{ $data->category_id }} value="4">Coffe</option>
+                          <option value="1">Food</option>
+                          <option value="2">Drink</option>
+                          <option value="3">Snack</option>
+                          <option value="4">Coffe</option>
                         </select>
                       </div>
                     </div>
