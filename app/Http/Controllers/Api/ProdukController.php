@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Produk;
 
 class ProdukController extends Controller
-{
+{   
     public function index(){
         $produk = Produk::all();
         return response()->json(
@@ -14,20 +14,15 @@ class ProdukController extends Controller
                 'success' => true,
                 'message' => 'Get Produk Berhasil',
                 'data' => $produk
-            ]
+            ], 200
             );
     }
-
     public function getId($id){
         $data = Produk::where('category_id',$id)->get();
-        if (count($data)>0) {
-            $res['success']  = true;
-            $res['message'] = "get category berhasil";
-            $res['data'] = $data;
-            return response($res);
-        } else {
-            $res['message'] = "Failed!";
-            return response($res);
-        }
+        return response()->json([
+            'success' => true,
+            'message' =>'Get category berhasil',
+            'data'=>$data
+        ],200);
     }
 }
