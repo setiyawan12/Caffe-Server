@@ -9,23 +9,25 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function login(Request $requset){
-        // dd($requset->all());die();
-        $user = User::where('email', $requset->email)->first();
-        if($user){
-            $user->update([
-                'fcm' => $requset->fcm
-            ]);
-            if(password_verify($requset->password, $user->password)){
-                return response()->json([
-                    'success' => 1,
-                    'message' => 'Selamat datang '.$user->name,
-                    'user' => $user
-                ]);
-            }
-            return $this->error('Password Salah');
+    public function login(Request $request) {
+        $validasi = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required|min:6',
+        ]);
+
+        if ($validasi->fails()) {
+            return $this->error($validasi->errors()->first());
         }
-        return $this->error('Email tidak terdaftar');
+
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if (password_verify($request->password, $user->password)) {
+                return $this->success($user);
+            } else {
+                return $this->error("Wrong password");
+            }
+        }
+        return $this->error("User tidak di temukan");
     }
     public function register(Request $requset){
         //nama, email, password
@@ -55,10 +57,20 @@ class UserController extends Controller
         return $this->error('Registrasi gagal');
 
     }
-    public function error($pasan){
+
+    public function success($data, $message = "success") {
         return response()->json([
-            'success' => 0,
-            'message' => $pasan
+            'code' => 200,
+            'message' => $message,
+            'data' => $data
         ]);
+    }
+
+    public function error($message) {
+        return response()->json([
+            'code' => 400,
+            'message' => $message
+        ], 400);
+
     }
 }
