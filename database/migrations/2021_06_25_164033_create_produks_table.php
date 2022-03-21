@@ -17,6 +17,7 @@ class CreateProduksTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('harga');
+            $table->string('stock');
             $table->string('deskripsi');
             $table->Integer('category_id')->unsigned();
             $table->string('image');

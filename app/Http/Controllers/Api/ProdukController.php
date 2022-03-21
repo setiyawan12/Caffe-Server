@@ -25,4 +25,5 @@ class ProdukController extends Controller
             'data'=>$data
         ],200);
     }
+    
 }

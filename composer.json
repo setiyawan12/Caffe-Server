@@ -11,9 +11,14 @@
         "php": "^7.2.5|^8.0",
         "cloudinary-labs/cloudinary-laravel": "^1.0",
         "fideloper/proxy": "^4.4",
+        "firmantr3/laravel-midtrans": "^1.0",
+        "guzzlehttp/guzzle": "^7.4",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
-        "midtrans/midtrans-php": "^2.5"
+        "livewire/livewire": "^1.0",
+        "midtrans/midtrans-php": "^2.5",
+        "pusher/pusher-php-server": "^7.0",
+        "santigarcor/laratrust": "5.2.*"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",
