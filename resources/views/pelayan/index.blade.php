@@ -39,7 +39,7 @@
 @livewireStyles
     </head>
 
-    <body>
+    <body data-layout-mode="dark" data-sidebar="dark" data-topbar="dark">
 
     <!-- <body data-layout="horizontal"> -->
 

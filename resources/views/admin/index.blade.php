@@ -27,7 +27,7 @@
         <link href="{{ asset ('core/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('core/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" /> 
     </head>
-    <body>
+    <body data-layout-mode="dark" data-sidebar="dark" data-topbar="dark">
 
     <!-- <body data-layout="horizontal"> -->
 

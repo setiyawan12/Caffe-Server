@@ -19,11 +19,23 @@ class ProdukController extends Controller
     }
     public function getId($id){
         $data = Produk::where('category_id',$id)->get();
+        $check = Produk::where('category_id',$id)->get()->count();
+        // dd($data1);
+
+        if($check > 0){
         return response()->json([
             'success' => true,
             'message' =>'Get category berhasil',
             'data'=>$data
-        ],200);
+        ],200);            
+        }else {
+        return response()->json([
+            'success' => false,
+            'message' =>'Product kosong',
+            'data'=>$data
+        ],200);            
+        }
+
     }
     
 }
