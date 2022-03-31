@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index(){
-        if (Auth::user()->hasRole('superadministrator')) {
+        if (Auth::user()->hasRole('admin')) {
             return redirect('admin');
                 }
-                elseif(Auth::user()->hasRole('user')){
+                elseif(Auth::user()->hasRole('pelayan')){
                 return redirect('pelayan');
                 }
                  else {

@@ -159,14 +159,34 @@ class ExampleController extends Controller
         dd($response);
     }
 
-    public function order(){
+    public function order(Request $request){
         $orderId = "TRX-1645460872966";
-        $status = Midtrans::status($orderId);
-        return response()->json([
-            "message"=>"success",
-            "data"=>$status
+        $data = Midtrans::status($orderId);
+        // $data = response()->json($status);
+        // $data = response()->json([
+        //     "message"=>"success",
+        //     "data"=>$status
+        // ]);
+        $result = response()->json([
+            "data" => $data
         ]);
-        // dd($status);
+        // $data = response()->json($status);
+        // $req = $request->input("currency");
+        
+        // $data = response()->json($status);
+        // $collection = collect($data);
+        // $fraud_status =$collection->('fraud_status');
+        // dump($data);
+        // dump($req);
+        // $result = json_encode($data,true);
+        // var_dump(json_encode($data,true));
+        // return $data;
+
+        $transaction_status =  "$data->transaction_status";
+
+        dd($transaction_status);
+        // dump($data);
+        return view('example',compact('data','transaction_status'));
     }
 
     public function uiLogin(){

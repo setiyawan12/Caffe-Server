@@ -15,14 +15,14 @@
   <thead>
     <tr>
       <th>First</th>
+      <th>payment_type</th>
     </tr>
   </thead>
   <tbody>
-      @foreach($data as $data)
     <tr>
-      <td>{{$data->status_code}}</td>
+      <td>{{$data->currency}}</td>
+      <td>{{$transaction_status}}</td>
     </tr>
-    @endforeach
   </tbody>
 </table>
 

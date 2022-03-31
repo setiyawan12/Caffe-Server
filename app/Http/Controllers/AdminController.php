@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Produk;
 use App\Customer;
 use App\TransaksiCustomer;
+use App\Notifications\PesananNotification;
+use App\User;
 class AdminController extends Controller
 {
     public function __construct(){
-        $this->middleware('role:superadministrator');
+        $this->middleware('role:admin');
     }
     public function index(){
         $produk = Produk::all()->count();
@@ -28,5 +30,12 @@ class AdminController extends Controller
         $customer = Customer::all()->count();
         $transaction = TransaksiCustomer::all()->count();
         return view('admin.dashboard',compact('produk','customer','transaction','food','drink','snack','coffe'));
+    }
+
+    public function notify(){
+        if(auth()->user()){
+            $user = User::first();
+            auth()->user()->notify(new PesananNotification($user));
+        }
     }
 }

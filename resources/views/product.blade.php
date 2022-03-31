@@ -65,7 +65,7 @@
                                         </form>
                                         <button onclick="deleteRow({{ $data->id }})"
                                             class="btn btn-danger waves-effect waves-lightr"><i
-                                                class="bx bx-block font-size-16 align-middle me-2"></i>Delete</button>
+                                            class="bx bx-block font-size-16 align-middle me-2"></i>Delete</button>
                                     </td>
                                 </tr>
                                 @endforeach

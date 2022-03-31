@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Transaction Pending</h4>
+                <h4 class="mb-sm-0 font-size-18">Transaction</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -24,7 +24,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Order Transaction</h4>
+                    <h4 class="card-title">Transaction</h4>
                     <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows
                         editable.</p>
                 </div>
@@ -51,18 +51,18 @@
                                     <td>{{ $data->pesanan }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td>
-                                        <a href="{{route('transaksiConfirm', Crypt::encrypt($data->id))}}">
+                                        <a href="{{route('midtransConfirm', Crypt::encrypt($data->id))}}">
                                             <button type="button" class="btn btn-primary waves-effect waves-light">
                                                 <i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>
                                                 confim
                                             </button>
                                         </a>
-                                        <a href="{{route('transaksiCancle', Crypt::encryptString($data->id))}}">
+                                        <a href="{{route('midtransCancle', Crypt::encryptString($data->id))}}">
                                             <button type="button" class="btn btn-danger waves-effect waves-light">
                                                 <i class="bx bx-block font-size-16 align-middle me-2"></i> Cancel
                                             </button>
                                         </a>
-                                        <a href="{{route ('transaksiDetail', Crypt::encryptString($data->id))}}">
+                                        <a href="{{route ('midtransDetail', Crypt::encryptString($data->id))}}">
                                             <button type="button" class="btn btn-warning waves-effect waves-light">
                                                 <i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>
                                                 Detail
@@ -84,7 +84,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Transaction Progress</h4>
+                <h4 class="mb-sm-0 font-size-18">Transaction</h4>
 
             </div>
         </div>
@@ -94,7 +94,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Progress Transaction</h4>
+                    <h4 class="card-title">Buttons example</h4>
                     <p class="card-title-desc">The Buttons extension for DataTables
                         provides a common set of options, API methods and styling to display
                         buttons on a page that will interact with a DataTable. The core library
@@ -108,7 +108,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Total</th>
-                                <th>Order</th>
+                                <th>order</th>
                                 <th>Status</th>
                                 <th style="width: 140px">Action</th>
                             </tr>
@@ -133,21 +133,21 @@
                                 </td>
                                 <td>
                                     @if($data->status == "DIKIRIM")
-                                    <a href="{{route ('transaksiDetail', Crypt::encryptString($data->id))}}">
+                                    <a href="{{route ('midtransDetail', Crypt::encryptString($data->id))}}">
                                     <button type="button" class="btn btn-primary waves-effect waves-light">
                                                 <i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>
                                                 Checkout
                                             </button>
                                     </a>
                                     @elseif($data->status == "PROSES")
-                                    <a href="{{ route('transaksiKirim', Crypt::encryptString($data->id)) }}">
+                                    <a href="{{ route('midtransKirim', Crypt::encryptString($data->id)) }}">
                                     <button type="button" class="btn btn-warning waves-effect waves-light">
                                                 <i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>
                                                 Kirim
                                             </button>
                                     </a>
                                     @elseif($data->status == "SELESAI" || $data->status == "BATAL")
-                                    <a href="{{route ('transaksiDetail', Crypt::encryptString($data->id))}}">
+                                    <a href="{{route ('midtransDetail', Crypt::encryptString($data->id))}}">
                                         <button type="button" class="btn btn-success waves-effect waves-light">
                                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Detail
                                         </button>
