@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="{{ asset ('landing/css/default.css')}}">
   <!-- --- style css -->
   <link rel="stylesheet" href="{{ asset ('landing/css/style.css')}}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
 </head>
 
 <body>
@@ -100,13 +101,13 @@
                     Now</a></li>
                 <li><a href="https://github.com/setiyawan12" class="header-video venobox wow fadeInLeftBig"
                     data-autoplay="true" data-vbtype="video" data-wow-duration="3s" data-wow-delay="1.2s"><i
-                      class="fas fa-play"></i></a></li>
+                      class="bi bi-github"></i></a></li>
               </ul>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="header-image">
-              <img src="{{ asset ('landing/img/header/header-app.png')}}" alt="" class="image-1  wow fadeInRightBig"
+              <img src="{{ asset ('landing/img/header/logo.svg')}}"alt="" class="image-1  wow fadeInRightBig"
                 data-wow-duration="3s" data-wow-delay="0.5s">
             </div>
           </div>
