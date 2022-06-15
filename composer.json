@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^8.0",
+        "barryvdh/laravel-ide-helper": "^2.1",
         "cloudinary-labs/cloudinary-laravel": "^1.0",
         "fideloper/proxy": "^4.4",
         "firmantr3/laravel-midtrans": "^1.0",

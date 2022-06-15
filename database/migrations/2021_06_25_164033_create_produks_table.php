@@ -18,7 +18,7 @@ class CreateProduksTable extends Migration
             $table->string('name');
             $table->string('harga');
             $table->string('stock');
-            $table->string('deskripsi');
+            $table->longtext('deskripsi');
             $table->Integer('category_id')->unsigned();
             $table->string('image');
             $table->string('public_id');
