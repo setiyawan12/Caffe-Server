@@ -8,22 +8,22 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset ('core/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{ secure_asset ('core/images/favicon.ico')}}">
 
         <!-- plugin css -->
-        <link href="{{ asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
 
         <!-- preloader css -->
-        <link rel="stylesheet" href="{{ asset ('core/css/preloader.min.css')}}" type="text/css" />
+        <link rel="stylesheet" href="{{ secure_asset ('core/css/preloader.min.css')}}" type="text/css" />
 
-        <link href="{{asset ('libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset ('libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
-        <link href="{{ asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="{{ asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="{{ asset ('core/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset ('core/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         @livewireStyles
     </head>
     <body>
@@ -41,19 +41,19 @@
                         <div class="navbar-brand-box">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset ('core/images/logo-sm.svg')}}" alt="" height="24">
+                                    <img src="{{ secure_asset ('core/images/logo-sm.svg')}}" alt="" height="24">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset ('core/images/logo-sm.svg')}}" alt="" height="24"> <span class="logo-txt">Minia</span>
+                                    <img src="{{ secure_asset ('core/images/logo-sm.svg')}}" alt="" height="24"> <span class="logo-txt">Minia</span>
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset ('core/images/logo-sm.svg')}}" alt="" height="24">
+                                    <img src="{{ secure_asset ('core/images/logo-sm.svg')}}" alt="" height="24">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset ('core/images/logo-sm.svg')}}" alt="" height="24"> <span class="logo-txt">Minia</span>
+                                    <img src="{{ secure_asset ('core/images/logo-sm.svg')}}" alt="" height="24"> <span class="logo-txt">Minia</span>
                                 </span>
                             </a>
                         </div>
@@ -123,7 +123,7 @@
                                     <a href="#!" class="text-reset notification-item">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
-                                                <img src="{{ asset ('core/images/users/avatar-3.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
+                                                <img src="{{ secure_asset ('core/images/users/avatar-3.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-1">James Lemire</h6>
@@ -170,7 +170,7 @@
                                     <a href="#!" class="text-reset notification-item">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
-                                                <img src="{{ asset ('core/images/users/avatar-6.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
+                                                <img src="{{ secure_asset ('core/images/users/avatar-6.jpg')}}" class="rounded-circle avatar-sm" alt="user-pic">
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-1">Salena Layfield</h6>
@@ -199,7 +199,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="{{ asset ('core/images/avatar.png')}}"
+                                <img class="rounded-circle header-profile-user" src="{{ secure_asset ('core/images/avatar.png')}}"
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium">Shawn L.</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -431,25 +431,25 @@
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
-        <script src="{{ asset ('core/libs/jquery/jquery.min.js')}}"></script>
-        <script src="{{ asset ('core/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{ asset ('core/libs/metismenu/metisMenu.min.js')}}"></script>
-        <script src="{{ asset ('core/libs/simplebar/simplebar.min.js')}}"></script>
-        <script src="{{ asset ('core/libs/node-waves/waves.min.js')}}"></script>
-        <script src="{{ asset ('core/libs/feather-icons/feather.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/jquery/jquery.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/metismenu/metisMenu.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/simplebar/simplebar.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/node-waves/waves.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/feather-icons/feather.min.js')}}"></script>
         <!-- pace js -->
-        <script src="{{ asset ('core/libs/pace-js/pace.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/pace-js/pace.min.js')}}"></script>
 
         <!-- apexcharts -->
-        <script src="{{ asset ('core/libs/apexcharts/apexcharts.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/apexcharts/apexcharts.min.js')}}"></script>
 
         <!-- Plugins js-->
-        <script src="{{ asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-        <script src="{{ asset ('core/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')}}"></script>
         <!-- dashboard init -->
-        <script src="{{ asset ('core/js/pages/dashboard.init.js')}}"></script>
-        <script src="{{ asset ('core/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset ('core/js/app.js')}}"></script>
+        <script src="{{ secure_asset ('core/js/pages/dashboard.init.js')}}"></script>
+        <script src="{{ secure_asset ('core/libs/dropzone/min/dropzone.min.js')}}"></script>
+        <script src="{{ secure_asset ('core/js/app.js')}}"></script>
         @livewireScripts
     </body>
 

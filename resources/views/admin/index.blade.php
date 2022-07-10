@@ -6,29 +6,29 @@
     <title>Dashboard | Jatinan Kopi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset ('core/images/logo.png')}}">
+    <link rel="shortcut icon" href="{{ secure_asset ('core/images/logo.png')}}">
 
     <!-- plugin css -->
-    <link href="{{ asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet"
+    <link href="{{ secure_asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet"
         type="text/css" />
 
     <!-- preloader css -->
-    <link rel="stylesheet" href="{{ asset ('core/css/preloader.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{ secure_asset ('core/css/preloader.min.css')}}" type="text/css" />
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ secure_asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{ asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ secure_asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset ('core/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{ secure_asset ('core/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/6.6.95/css/materialdesignicons.min.css">
 
-    <link href="{{ asset ('core/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet"
+    <link href="{{ secure_asset ('core/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet"
         type="text/css" />
-    <link href="{{ asset ('core/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet"
+    <link href="{{ secure_asset ('core/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet"
         type="text/css" />
-    <link href="{{ asset ('core/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}"
+    <link href="{{ secure_asset ('core/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}"
         rel="stylesheet" type="text/css" />
 </head>
 
@@ -45,20 +45,20 @@
                     <div class="navbar-brand-box">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ asset ('core/images/logo.png')}}" alt="" height="24">
+                                <img src="{{ secure_asset ('core/images/logo.png')}}" alt="" height="24">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset ('core/images/logo.png')}}" alt="" height="24"> <span
+                                <img src="{{ secure_asset ('core/images/logo.png')}}" alt="" height="24"> <span
                                     class="logo-txt">Jatinan Kafe</span>
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ asset ('core/images/logo.png')}}" alt="" height="24">
+                                <img src="{{ secure_asset ('core/images/logo.png')}}" alt="" height="24">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset ('core/images/logo.png')}}" alt="" height="24"> <span
+                                <img src="{{ secure_asset ('core/images/logo.png')}}" alt="" height="24"> <span
                                     class="logo-txt">Jatinan Kafe</span>
                             </span>
                         </a>
@@ -135,7 +135,7 @@
                                     <li><a href="#!" class="text-reset notification-item">
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
-                                                    <img src="{{ asset ('core/images/users/avatar-3.jpg')}}"
+                                                    <img src="{{ secure_asset ('core/images/users/avatar-3.jpg')}}"
                                                         class="rounded-circle avatar-sm" alt="user-pic">
                                                 </div>
                                                 <div class="flex-grow-1">
@@ -170,7 +170,7 @@
                         <button type="button" class="btn header-item bg-soft-light border-start border-end"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="{{ asset ('core/images/avatar.png')}}"
+                            <img class="rounded-circle header-profile-user" src="{{ secure_asset ('core/images/avatar.png')}}"
                                 alt="Header Avatar">
                             <span class="d-none d-xl-inline-block ms-1 fw-medium">{{ Auth::user()->name }}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -425,45 +425,45 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-    <script src="{{ asset ('core/libs/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset ('core/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset ('core/libs/metismenu/metisMenu.min.js')}}"></script>
-    <script src="{{ asset ('core/libs/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{ asset ('core/libs/node-waves/waves.min.js')}}"></script>
-    <script src="{{ asset ('core/libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/jquery/jquery.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/metismenu/metisMenu.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/feather-icons/feather.min.js')}}"></script>
     <!-- pace js -->
-    <script src="{{ asset ('core/libs/pace-js/pace.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/pace-js/pace.min.js')}}"></script>
 
     <!-- apexcharts -->
-    <script src="{{ asset ('core/libs/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/apexcharts/apexcharts.min.js')}}"></script>
 
     <!-- Plugins js-->
-    <script src="{{ asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script src="{{ asset ('core/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')}}">
+    <script src="{{ secure_asset ('core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')}}">
     </script>
     <!-- dashboard init -->
-    <script src="{{ asset ('core/js/pages/dashboard.init.js')}}"></script>
-    <script src="{{ asset ('core/libs/dropzone/min/dropzone.min.js')}}"></script>
-    <script src="{{ asset ('core/js/app.js')}}"></script>
+    <script src="{{ secure_asset ('core/js/pages/dashboard.init.js')}}"></script>
+    <script src="{{ secure_asset ('core/libs/dropzone/min/dropzone.min.js')}}"></script>
+    <script src="{{ secure_asset ('core/js/app.js')}}"></script>
     <!-- Required datatable js -->
-    <script src="{{asset('core/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('core/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     <!-- Buttons examples -->
-    <script src="{{asset('core/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('core/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('core/libs/jszip/jszip.min.js')}}"></script>
-    <script src="{{asset('core/libs/pdfmake/build/pdfmake.min.js')}}"></script>
-    <script src="{{asset('core/libs/pdfmake/build/vfs_fonts.js')}}"></script>
-    <script src="{{asset('core/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('core/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-    <script src="{{asset('core/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/jszip/jszip.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/pdfmake/build/vfs_fonts.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
 
     <!-- Responsive examples -->
-    <script src="{{asset('core/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-    <script src="{{asset('core/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{secure_asset('core/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
     <!-- Datatable init js -->
-    <script src="{{asset('core/js/pages/datatables.init.js')}}"></script>
+    <script src="{{secure_asset('core/js/pages/datatables.init.js')}}"></script>
     </script>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

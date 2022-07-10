@@ -7,19 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jatinan Caffe</title>
   <!-- -------- anime css ------ -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/animate.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/animate.css')}}">
   <!-- --------- tiny slider css ------ -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/tiny-slider.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/tiny-slider.css')}}">
   <!-- --------- font awsome css ------ -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/all.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/all.css')}}">
   <!-- -------- venobox css ------- -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/venobox.css')}}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/venobox.css')}}" type="text/css" media="screen" />
   <!-- ---- Bootstrap css--- -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/bootstrap.min.css')}}">
   <!-- ---------- default css --------- -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/default.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/default.css')}}">
   <!-- --- style css -->
-  <link rel="stylesheet" href="{{ asset ('landing/css/style.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset ('landing/css/style.css')}}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
 </head>
 
@@ -49,7 +49,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
-              <img class="image" style="width:50px;height:60px;" src="{{ asset ('landing/img/header/logo/logo.png')}}" alt="">
+              <img class="image" style="width:50px;height:60px;" src="{{ secure_asset ('landing/img/header/logo/logo.png')}}" alt="">
               <span style="color:gray;font-size:150%;">Jatinan Caffe</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -107,7 +107,7 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="header-image">
-              <img src="{{ asset ('landing/img/header/logo.svg')}}"alt="" class="image-1  wow fadeInRightBig"
+              <img src="{{ secure_asset ('landing/img/header/logo.svg')}}"alt="" class="image-1  wow fadeInRightBig"
                 data-wow-duration="3s" data-wow-delay="0.5s">
             </div>
           </div>
@@ -116,28 +116,28 @@
       <div class="container">
         <div class="header-shape-1"></div>
         <div class="header-shape-2">
-          <img src="{{ asset ('landing/img/header/header-shape-2.svg')}}" alt="">
+          <img src="{{ secure_asset ('landing/img/header/header-shape-2.svg')}}" alt="">
         </div>
       </div>
     </div>
     <!---- home star ------>
   </header>
   <!-- ---- jquery Js ---- -->
-  <script src="{{ asset ('landing/js/jquery-1.12.4.min.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/jquery-1.12.4.min.js')}}"></script>
   <!-- -------- venobox js ------ -->
-  <script type="text/javascript" src="{{ asset ('landing/js/venobox.min.js')}}"></script>
+  <script type="text/javascript" src="{{ secure_asset ('landing/js/venobox.min.js')}}"></script>
   <!-- ---------- wow js ---------- -->
-  <script src="{{ asset ('landing/js/wow.min.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/wow.min.js')}}"></script>
   <!-- ---------- tiny slider js --------- -->
-  <script src="{{ asset ('landing/js/tiny-slider.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/tiny-slider.js')}}"></script>
   <!-- ---------- scrollit js ---------- -->
-  <script src="{{ asset ('landing/js/scrollIt.min.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/scrollIt.min.js')}}"></script>
   <!-- -------- font awsome js --------- -->
-  <script src="{{ asset ('landing/js/all.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/all.js')}}"></script>
   <!-- ---- Bootstrap Js ---- -->
-  <script src="{{ asset ('landing/js/bootstrap.min.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/bootstrap.min.js')}}"></script>
   <!-- ---- main js --- -->
-  <script src="{{ asset ('landing/js/main.js')}}"></script>
+  <script src="{{ secure_asset ('landing/js/main.js')}}"></script>
 </body>
 
 </html>
