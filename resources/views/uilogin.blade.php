@@ -9,17 +9,17 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ secure_asset ('core/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset ('core/images/favicon.ico')}}">
 
     <!-- preloader css -->
-    <link rel="stylesheet" href="{{ secure_asset ('core/css/preloader.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset ('core/css/preloader.min.css')}}" type="text/css" />
 
     <!-- Bootstrap Css -->
-    <link href="{{ secure_asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{ secure_asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ secure_asset ('core/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset ('core/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -35,7 +35,7 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5 text-center">
                                     <a href="index.html" class="d-block auth-logo">
-                                        <img src="{{ secure_asset ('core/images/logo-sm.svg')}}" alt="" height="28"> <span
+                                        <img src="{{ asset ('core/images/logo-sm.svg')}}" alt="" height="28"> <span
                                             class="logo-txt">Minia</span>
                                     </a>
                                 </div>
@@ -189,7 +189,7 @@
                                                     <div class="mt-4 pt-3 pb-5">
                                                         <div class="d-flex align-items-start">
                                                             <div class="flex-shrink-0">
-                                                                <img src="{{ secure_asset ('core/images/users/avatar-1.jpg')}}"
+                                                                <img src="{{ asset ('core/images/users/avatar-1.jpg')}}"
                                                                     class="avatar-md img-fluid rounded-circle"
                                                                     alt="...">
                                                             </div>
@@ -216,7 +216,7 @@
                                                     <div class="mt-4 pt-3 pb-5">
                                                         <div class="d-flex align-items-start">
                                                             <div class="flex-shrink-0">
-                                                                <img src="{{ secure_asset ('core/images/users/avatar-2.jpg')}}"
+                                                                <img src="{{ asset ('core/images/users/avatar-2.jpg')}}"
                                                                     class="avatar-md img-fluid rounded-circle"
                                                                     alt="...">
                                                             </div>
@@ -242,7 +242,7 @@
                                                         feel.”</h4>
                                                     <div class="mt-4 pt-3 pb-5">
                                                         <div class="d-flex align-items-start">
-                                                            <img src="{{ secure_asset ('core/images/users/avatar-3.jpg')}}"
+                                                            <img src="{{ asset ('core/images/users/avatar-3.jpg')}}"
                                                                 class="avatar-md img-fluid rounded-circle" alt="...">
                                                             <div class="flex-1 ms-3 mb-4">
                                                                 <h5 class="font-size-18 text-white">Ilse R. Eaton</h5>
@@ -271,16 +271,16 @@
 
 
     <!-- JAVASCRIPT -->
-    <script src="{{ secure_asset ('core/libs/jquery/jquery.min.js')}}"></script>
-    <script src="{{ secure_asset ('core/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ secure_asset ('core/libs/metismenu/metisMenu.min.js')}}"></script>
-    <script src="{{ secure_asset ('core/libs/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{ secure_asset ('core/libs/node-waves/waves.min.js')}}"></script>
-    <script src="{{ secure_asset ('core/libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/metismenu/metisMenu.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/feather-icons/feather.min.js')}}"></script>
     <!-- pace js -->
-    <script src="{{ secure_asset ('core/libs/pace-js/pace.min.js')}}"></script>
+    <script src="{{ asset ('core/libs/pace-js/pace.min.js')}}"></script>
     <!-- password addon init -->
-    <script src="{{ secure_asset ('core/js/pages/pass-addon.init.js')}}"></script>
+    <script src="{{ asset ('core/js/pages/pass-addon.init.js')}}"></script>
 
 </body>
 

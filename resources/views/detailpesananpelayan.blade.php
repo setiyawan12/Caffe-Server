@@ -22,7 +22,7 @@
                         <div class="d-flex align-items-start mt-3 mt-sm-0">
                             <div class="flex-shrink-0">
                                 <div class="avatar-xl me-3">
-                                    <img src="{{ secure_asset ('core/images/avatar.png')}}" alt="" class="img-fluid rounded-circle d-block">
+                                    <img src="{{ asset ('core/images/avatar.png')}}" alt="" class="img-fluid rounded-circle d-block">
                                 </div>
                             </div>
                             <div class="flex-grow-1">
