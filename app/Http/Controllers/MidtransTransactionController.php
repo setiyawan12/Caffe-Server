@@ -19,7 +19,7 @@ use App\Http\Controllers\Midtrans\Snap;
 use App\Http\Controllers\Midtrans\Config;
 
 class MidtransTransactionController extends Controller
-{
+{   
  public function index(){
     $transaksiPending['listpending'] = MidtransTransaction::whereStatus("MENUNGGU")->get();
     $transaksiSelesai['listDone'] = MidtransTransaction::where("status", "NOT LIKE", "%MENUNGGU%")->get();

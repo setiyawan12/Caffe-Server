@@ -13,7 +13,6 @@
                             data-bs-target="#exampleModal">Tambah Produk</button>
                     </ol>
                 </div>
-
             </div>
         </div>
     </div>
@@ -65,7 +64,10 @@
                                         </form>
                                         <button onclick="deleteRow({{ $data->id }})"
                                             class="btn btn-danger waves-effect waves-lightr"><i
-                                            class="bx bx-block font-size-16 align-middle me-2"></i>Delete</button>
+                                                class="bx bx-block font-size-16 align-middle me-2"></i>Delete</button>
+                                        <button onclick="edit({{ $data->id }})"
+                                            class="btn btn-warning waves-effect waves-light">
+                                            <i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>Update</button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -87,7 +89,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('product.store') }}" role="form" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('product.store') }}" role="form">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -148,6 +150,45 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </button>
+                </div>
+                <form method="POST" action="#" role="form" id="form-edit">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <input type="hidden" name ="product_id" id="product_id">
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" class="form-control" id="name" placeholder="Nama"
+                                name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="text" class="form-control" id="harga" placeholder="Price"
+                                name="harga" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="text" class="form-control" id="stock" placeholder="Stock"
+                                name="stock" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-update" onclick="update()">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     @endsection
     <script>
         function deleteRow(id) {
@@ -162,6 +203,41 @@
                     $('#data-' + id).submit();
                 }
             })
+        };
+    </script>
+    <script>
+        function edit(id) {
+            $('#editModal').modal('show');
+            $.ajax({
+                type: "GET",
+                url: "/product/" + id + "/edit",
+                success: function (response) {
+                    $('#name').val(response.data.name);
+                    $('#product_id').val(response.data.id);
+                    $('#harga').val(response.data.harga);
+                    $('#stock').val(response.data.stock);
+                }
+            })
         }
 
+    </script>
+    <script>
+        function update(){
+            let id = $('#form-edit').find('#product_id').val()
+            let formData = $('#form-edit').serialize()
+            console.log(formData);
+
+            $.ajax({
+                url:`/product/${id}`,
+                method:"PUT",
+                data:formData,
+                success:function(data){
+                    $('editModal').modal('hide')
+                    window.location.assign('/product')
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            })
+        }
     </script>

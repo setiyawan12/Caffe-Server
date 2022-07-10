@@ -28,9 +28,8 @@ Route::get('transaksi/customer/{id}', 'Api\CustomerTransaksiController@history')
 Route::get('transaksi/customer/midtrans/{id}', 'Api\PaymentController@history');
 Route::get('chekout/user/{id}', 'Api\TransaksiController@history');
 Route::get('transaksi/customer/midtransdetail/{id}', 'Api\PaymentController@detail');
-// Route::get('chekout/customer/{id}', 'Api\TransaksiController@history');
 Route::post('chekout/batal/{id}', 'Api\TransaksiController@batal');
-Route::post('/charge', 'Api\MidtransController@test');
+Route::post('/charge', 'Api\MidtransController@charge');
 Route::post('payment', 'Api\PaymentController@store');
 
 // Route::post('/charge', 'Api\PaymentController@charge');

@@ -31,4 +31,27 @@ class ProductController extends Controller
         $id->delete();
         return redirect()->route('product.index')->with('success', 'Data has been deleted!');
     }
+    public function edit($id){
+        $produk = Produk::find($id);
+        return response()->json([
+            'status' => 200,
+            'data' =>$produk,
+        ]);
+    }
+
+    public function update(Request $request,$id){
+        Produk::where('id',$id)->update(
+            [
+                'name' => $request->name,
+                'harga' => $request->harga,
+                'stock'=> $request->stock,
+            ]
+            );
+    }
+
+    private function _validation(Request $request){
+        $validation = $request->validate([
+         'name.required'=>"Harus Di isi",   
+        ]);
+    }
 }

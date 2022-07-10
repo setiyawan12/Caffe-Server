@@ -210,16 +210,30 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('order.index') }}">
-                                <i data-feather="umbrella"></i>
-                                <span data-key="t-dashboard">Order</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="{{ route('product.index') }}">
                                 <i data-feather="menu"></i>
                                 <span data-key="t-dashboard">Product</span>
                             </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <i data-feather="umbrella"></i>
+                                <span data-key="t-apps">Order</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('order.index') }}">
+                                    <i data-feather="dollar-sign"></i>
+                                        <span data-key="t-calendar">Order Cash</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('ordermidtrans.index') }}">
+                                    <i data-feather="credit-card"></i>
+                                        <span data-key="t-chat">Order Cashless</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow">

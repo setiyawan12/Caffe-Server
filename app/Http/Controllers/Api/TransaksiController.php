@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Transaksi;
 use App\TransaksiDetail;
 use App\User;
+use App\Produk;
 
 class TransaksiController extends Controller
 {
@@ -83,6 +84,7 @@ class TransaksiController extends Controller
 
         \DB::beginTransaction();
         $transaksi = Transaksi::create($dataTransaksi);
+        $stockArray = [];
         foreach ($requset->produks as $produk) {
             $detail = [
                 'transaksi_id' => $transaksi->id,
@@ -92,14 +94,25 @@ class TransaksiController extends Controller
                 'total_harga' => $produk['total_harga']
             ];
             $transaksiDetail = TransaksiDetail::create($detail);
+            $product = Produk::where('id', $produk['id'])->first();
+            $newStok = $product->stock - $produk['total_item'];
+            $stockArray[] = [
+                "stock" => $newStok
+            ];
+            // $product->update([
+            //     'stock' => $newStok
+            // ]);
+
+
         }
         if (!empty($transaksi) && !empty($transaksiDetail)) {
             \DB::commit();
             return response()->json([
                 'success' => 1,
                 'message' => 'Transaksi Berhasil',
-                'transaksi' => collect($transaksi)
-            ]);
+                'transaksi' => collect($transaksi),
+                'stock' => $stockArray
+            ]); 
         } else {
             \DB::rollback();
             return $this->error('Transaksi gagal');

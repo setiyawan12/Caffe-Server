@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\TransaksiCustomer;
 use App\TransaksiCustomerDetail;
 use Pusher\Pusher;
+use App\Produk;
 
 class CustomerTransaksiController extends Controller
 {
@@ -65,6 +66,12 @@ class CustomerTransaksiController extends Controller
                 'total_harga' => $produk['total_harga']
             ];
             $transaksiDetail = TransaksiCustomerDetail::create($detail);
+            $product = Produk::where('id', $produk['id'])->first();
+            $newStock = $product->stock - $produk['total_item'];
+            $product->update([
+                'stock' => $newStock
+            ]);
+
         }
         if (!empty($transaksi) && !empty($transaksiDetail)) {
             \DB::commit();

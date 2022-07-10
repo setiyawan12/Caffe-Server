@@ -10,7 +10,7 @@ use App\MidtransTransactionDetail;
 use App\TransaksiCustomer;
 use App\TransaksiCustomerDetail;
 use Firmantr3\Midtrans\Facade\Midtrans;
-
+use App\Produk;
 
 use App\Http\Controllers\Midtrans\Config;
 
@@ -66,6 +66,11 @@ class PaymentController extends Controller
                 'total_harga' => $produk['total_harga']
             ];
             $transaksiDetail = MidtransTransactionDetail::create($detail);
+            $product = Produk::where('id', $produk['id'])->first();
+            $newStock = $product->stock - $produk['total_item'];
+            $product->update([
+                'stock' => $newStock
+            ]);
         }
         if (!empty($transaksi) && !empty($transaksiDetail)) {
             \DB::commit();

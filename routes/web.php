@@ -20,33 +20,41 @@ Auth::routes();
 Route::resource('/','HandleLoginController');
 Route::resource('/example','ExampleController');
 Route::get('/status','ExampleController@order');
-
 Route::get('/uilogin','ExampleController@uiLogin');
-
+// Route::get('/product/all/','ProductController@getAll');
 
 Route::group(['middleware' =>['auth','role:admin']], function(){
-    Route::resource('/admin', 'AdminController');
-    Route::get('/notify','AdminController@notify');
     Route::resource('/transaction', 'TransactionController');
     Route::get('/transaction/confim/{id}', 'TransactionController@confirm')->name('transaksiConfirm');
     Route::get('/transaction/cancle/{id}', 'TransactionController@cancel')->name('transaksiCancle');
     Route::get('/transaction/kirim/{id}', 'TransactionController@kirim')->name('transaksiKirim');
     Route::get('/transaction/selesai/{id}', 'TransactionController@selesai')->name('transaksiSelesai');
     Route::get('/transaction/detail/{id}', 'TransactionController@detailtransaction')->name('transaksiDetail');
-    
+});
+Route::group(['middleware' =>['auth','role:admin']], function(){
     Route::resource('/midtrans', 'MidtransTransactionController');
     Route::get('/midtrans/confim/{id}', 'MidtransTransactionController@confirm')->name('midtransConfirm');
     Route::get('/midtrans/cancle/{id}', 'MidtransTransactionController@cancle')->name('midtransCancle');
     Route::get('/midtrans/detail/{id}', 'MidtransTransactionController@detailtransaction')->name('midtransDetail');
     Route::get('/midtrans/kirim/{id}', 'MidtransTransactionController@kirim')->name('midtransKirim');
     Route::get('/midtrans/selesai/{id}', 'MidtransTransactionController@selesai')->name('midtransSelesai');
-
+});
+Route::group(['middleware' =>['auth','role:admin']], function(){
     Route::resource('/order', 'PemesananController');
     Route::get('/pesanan','PemesananController@index');
     Route::get('/pesanan/{id}', 'PemesananController@detailpesanan');
     Route::get('/pesanan/kirim/{id}', 'PemesananController@kirim')->name('pesananKirim');
-    Route::resource('/product', 'ProductController');
+});
+Route::group(['middleware' =>['auth','role:admin']], function(){
+    Route::resource('/ordermidtrans', 'OrderPelayanMidtransController');
+    Route::get('/pesananmidtrans/{id}', 'OrderPelayanMidtransController@detailpesananmidtrans');
+});
 
+Route::group(['middleware' =>['auth','role:admin']], function(){
+    Route::resource('/admin', 'AdminController');
+    Route::get('/notify','AdminController@notify');
+    Route::resource('/product', 'ProductController');
+    Route::get('/product/{$id}','ProductController@edit');
 });
 Route::group(['middleware' =>['auth','role:pelayan']],function(){
     Route::resource('/pelayan', 'PelayanController');
@@ -54,5 +62,7 @@ Route::group(['middleware' =>['auth','role:pelayan']],function(){
     Route::get('/pesanancustomer/{id}', 'OrderPelayanController@detailpesanan');
     Route::get('/pesanancustomer/kirim/{id}', 'OrderPelayanController@kirim')->name('pesanancustomerkirim');
 });
+
+
 
 // Route::get('/midtrans','ExampleController@order');
