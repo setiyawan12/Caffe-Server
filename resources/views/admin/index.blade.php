@@ -35,7 +35,6 @@
 <body data-layout-mode="dark" data-sidebar="dark" data-topbar="dark">
 
     <!-- <body data-layout="horizontal"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <header id="page-topbar">
@@ -63,7 +62,6 @@
                             </span>
                         </a>
                     </div>
-
                     <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
@@ -160,11 +158,6 @@
                         </div>
                     </div>
 
-                    <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item right-bar-toggle me-2">
-                            <i data-feather="settings" class="icon-lg"></i>
-                        </button>
-                    </div>
 
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-soft-light border-start border-end"
@@ -480,9 +473,28 @@
                 title: data.message,
                 text: data.tittle,
                 icon: "info"
+            }).then(function () {
+                window.location.assign('/transaction')
             });
         });
-
+    </script>
+        <script>
+        var midtrans = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+            cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+            encrypted: true
+        });
+        var channel1 = midtrans.subscribe('midtrans-channel');
+        channel1.bind('App\\Events\\AndroidMidtrans', function (data) {
+            //   alert(data.message);
+            console.log(data);
+            swal({
+                title: data.message,
+                text: data.tittle,
+                icon: "info"
+            }).then(function () {
+                window.location.assign('/midtrans')
+            });
+        });
     </script>
 </body>
 

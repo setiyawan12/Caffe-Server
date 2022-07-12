@@ -35,7 +35,7 @@
                             <thead>
                                 <tr class="text-center">
                                     <th>ID</th>
-                                    <th>Nama</th>
+                                    <th>Name</th>
                                     <th>Total</th>
                                     <th>Order</th>
                                     <th>Status</th>
@@ -47,7 +47,7 @@
                                 <tr class="text-center">
                                     <td>{{ $data->id }}</td>
                                     <td>{{ $data->name }}</td>
-                                    <td>{{ $data->total_harga }}</td>
+                                    <td>{{"Rp.".number_format($data->total_harga)}}</td>
                                     <td>{{ $data->pesanan }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td>
@@ -106,7 +106,7 @@
                         <thead>
                             <tr class="text-center">
                                 <th>ID</th>
-                                <th>Nama</th>
+                                <th>Name</th>
                                 <th>Total</th>
                                 <th>Order</th>
                                 <th>Status</th>
@@ -118,7 +118,7 @@
                             <tr class="text-center">
                                 <td>{{ $data->id }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->total_harga }}</td>
+                                <td>{{"Rp.".number_format($data->total_harga)}}</td>
                                 <td>{{ $data->pesanan }}</td>
                                 <td>
                                     @if($data->status == "DIKIRIM")

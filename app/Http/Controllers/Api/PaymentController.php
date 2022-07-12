@@ -11,6 +11,8 @@ use App\TransaksiCustomer;
 use App\TransaksiCustomerDetail;
 use Firmantr3\Midtrans\Facade\Midtrans;
 use App\Produk;
+use Pusher\Pusher;
+
 
 use App\Http\Controllers\Midtrans\Config;
 
@@ -26,6 +28,20 @@ use App\Http\Controllers\Midtrans\Snap;
 class PaymentController extends Controller
 {
     public function store (Request $request){
+        $options = array(
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => true
+            );
+               $pusher = new Pusher(
+                       env('PUSHER_APP_KEY'),
+                       env('PUSHER_APP_SECRET'),
+                       env('PUSHER_APP_ID'),
+               $options);
+                $data = array(
+                    'message' =>'Hi Admin',
+                    'tittle'=>'New Order...'
+                );
+                $pusher->trigger('midtrans-channel', 'App\\Events\\AndroidMidtrans', $data);
         $validasi = Validator::make($request->all(),[
             'customer_id' => 'required',
             'total_item' => 'required',

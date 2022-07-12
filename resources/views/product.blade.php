@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Produk</h4>
+                <h4 class="mb-sm-0 font-size-18">Product</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Tambah Produk</button>
+                            data-bs-target="#exampleModal">Add Product</button>
                     </ol>
                 </div>
             </div>
@@ -21,7 +21,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Table Produk</h4>
+                    <h4 class="card-title">Table Product</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -95,7 +95,7 @@
                         <div class="form-group">
                             <label>Nama</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama"
-                                name="name">
+                                name="name" required>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">
@@ -135,7 +135,7 @@
                             <label for="exampleInputFile">File Gambar</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                             </div>

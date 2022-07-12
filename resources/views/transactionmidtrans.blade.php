@@ -24,7 +24,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Transaction</h4>
+                    <h4 class="card-title">Order Cashless</h4>
                     <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows
                         editable.</p>
                 </div>
@@ -35,7 +35,7 @@
                             <thead>
                                 <tr class="text-center">
                                     <th>ID</th>
-                                    <th>Nama</th>
+                                    <th>Name</th>
                                     <th>Total</th>
                                     <th>Order</th>
                                     <th>Status</th>
@@ -47,7 +47,7 @@
                                 <tr class="text-center">
                                     <td>{{ $data->id }}</td>
                                     <td>{{ $data->name }}</td>
-                                    <td>{{ $data->total_harga }}</td>
+                                    <td>{{"Rp.".number_format($data->total_harga)}}</td>
                                     <td>{{ $data->pesanan }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td>
@@ -94,7 +94,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Buttons example</h4>
+                    <h4 class="card-title">Progress Cashless</h4>
                     <p class="card-title-desc">The Buttons extension for DataTables
                         provides a common set of options, API methods and styling to display
                         buttons on a page that will interact with a DataTable. The core library
@@ -106,7 +106,7 @@
                         <thead>
                             <tr class="text-center">
                                 <th>ID</th>
-                                <th>Nama</th>
+                                <th>Name</th>
                                 <th>Total</th>
                                 <th>order</th>
                                 <th>Status</th>
@@ -118,7 +118,7 @@
                             <tr class="text-center">
                                 <td>{{ $data->id }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->total_harga }}</td>
+                                <td>{{"Rp.".number_format($data->total_harga)}}</td>
                                 <td>{{ $data->pesanan }}</td>
                                 <td>
                                     @if($data->status == "DIKIRIM")

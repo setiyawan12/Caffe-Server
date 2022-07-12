@@ -27,21 +27,27 @@
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-12">
-                            <span class="text-muted mb-3 lh-1 d-block text-truncate text-center"><h2>{{$data->name}}</h2></span>
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate text-center">
+                                <h2>{{$data->name}}</h2>
+                            </span>
                             <h4 class="mb-3">
-                                <span class="text-muted mb-3 lh-1 d-block text-truncate text-center">{{$data -> pesanan}}</span>
+                                <span
+                                    class="text-muted mb-3 lh-1 d-block text-truncate text-center">{{$data -> pesanan}}</span>
                             </h4>
                             <h4 class="mb-3">
-                                <span class="text-muted mb-3 lh-1 d-block text-truncate text-center">{{$data -> id}}</span>
+                                <span
+                                    class="text-muted mb-3 lh-1 d-block text-truncate text-center">{{$data -> meja}}</span>
                             </h4>
                         </div>
                     </div>
                     <div class="text-nowrap text-center">
                         <a href="{{url ('pesanan/'.$data->id)}}">
-                        <button type="button" class="btn btn-outline-primary waves-effect waves-light">Detail</button>
+                            <button type="button" class="btn btn-outline-primary waves-effect waves-light"><i
+                                    class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>Detail</button>
                         </a>
                         <a href="{{route('pesananKirim', $data->id)}}">
-                        <button type="button" class="btn btn-outline-primary waves-effect waves-light">Sajikan</button>
+                            <button type="button" class="btn btn-outline-success waves-effect waves-light"><i
+                                    class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>Delivered</button>
                         </a>
                     </div>
                 </div><!-- end card body -->

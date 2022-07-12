@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Pesanan</h4>
+                <h4 class="mb-sm-0 font-size-18">Order</h4>
 
             </div>
         </div>
@@ -59,10 +59,10 @@
 
                     <ul class="nav nav-tabs-custom card-header-tabs border-top mt-4" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link px-3 active" data-bs-toggle="tab" href="#overview" role="tab">Pesanan</a>
+                            <a class="nav-link px-3 active" data-bs-toggle="tab" href="#overview" role="tab">Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-3" data-bs-toggle="tab" href="#about" role="tab">Detail</a>
+                            <a class="nav-link px-3" data-bs-toggle="tab" href="#about" role="tab">Details</a>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="tab-pane active" id="overview" role="tabpanel">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Pesanan</h5>
+                            <h5 class="card-title mb-0">Order</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -210,7 +210,6 @@
                                     <a href="javascript:window.print()"
                                         class="btn btn-success waves-effect waves-light me-1"><i
                                             class="fa fa-print"></i></a>
-                                    <a href="#" class="btn btn-primary w-md waves-effect waves-light">Send</a>
                                 </div>
                             </div>
                         </div>

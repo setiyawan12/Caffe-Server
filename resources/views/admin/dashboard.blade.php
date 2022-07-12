@@ -67,10 +67,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Animated stripes</h4>
-                    <p class="card-title-desc">The striped gradient can also be
-                        animated. Add <code>.progress-bar-animated</code> to <code>.progress-bar</code> to animate the
-                        stripes right to left via CSS3 animations.</p>
+                    <h4 class="card-title">Product</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
                     <div class="mb-4">

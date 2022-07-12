@@ -65,7 +65,6 @@ public function detailtransaction($id){
     $order_id = "$dt->order_id";
     $midtrans = Midtrans::status($order_id);
     $va_numbers = $midtrans->va_numbers[0];
-    dump($midtrans);
     return view ('midtransdetail', compact('dt','tittle','name','midtrans','va_numbers'));
 }
 
@@ -73,7 +72,8 @@ public function kirim($id){
     $decodeID = Crypt::decryptString($id);
     $transaksi = MidtransTransaction::with(['details.produk','user'])->where('id', $decodeID)->first();
     $transaksi->update([
-        'status' => "DIKIRIM"
+        'status' => "DIKIRIM",
+        'pesanan' => "Order Completed"
     ]);
     return redirect('midtrans');
 }

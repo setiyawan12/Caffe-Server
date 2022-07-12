@@ -23,8 +23,8 @@ class CustomerTransaksiController extends Controller
                        env('PUSHER_APP_ID'),
                $options);
                 $data = array(
-                    'message' =>'setiyawan',
-                    'tittle'=>'Pesanan Baru'
+                    'message' =>'Hi Admin',
+                    'tittle'=>'New Order...'
                 );
                 $pusher->trigger('android-channel', 'App\\Events\\Android', $data);
         $validasi = Validator::make($request->all(),[

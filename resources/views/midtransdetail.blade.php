@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">Pesanan</h4>
+            <h4 class="mb-sm-0 font-size-18">Details Order</h4>
 
         </div>
     </div>
@@ -56,11 +56,11 @@
 
                 <ul class="nav nav-tabs-custom card-header-tabs border-top mt-4" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                    <a class="nav-link px-3 active" data-bs-toggle="tab" href="#detail" role="tab">Detail</a>
+                    <a class="nav-link px-3 active" data-bs-toggle="tab" href="#detail" role="tab">Details</a>
 
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link px-3" data-bs-toggle="tab" href="#pesanan" role="tab">Pesanan</a>
+                    <a class="nav-link px-3" data-bs-toggle="tab" href="#pesanan" role="tab">Order</a>
 
                     </li>
                 </ul>
@@ -73,7 +73,7 @@
             <div class="tab-pane" id="pesanan" role="tabpanel">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Pesanan</h5>
+                        <h5 class="card-title mb-0">Order</h5>
                     </div>
                     <div class="card-body">
                     <div class="table-responsive">
@@ -166,7 +166,7 @@
                                                         <tr>
                                                             <th style="width: 70px;">No.</th>
                                                             <th>Item</th>
-                                                            <th>Harga</th>
+                                                            <th>Price</th>
                                                             <th>Total Item</th>
                                                             <th class="text-end" style="width: 120px;">Total</th>
                                                         </tr>
@@ -203,9 +203,11 @@
                                         <div class="d-print-none mt-3">
                                             <div class="float-end">
                                                 <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
-                                                @if($dt->status == "DIKIRIM")          
+                                                @if($dt->status == "DIKIRIM" && $midtrans -> transaction_status == "settlement")          
                                                 <a href="{{ route('midtransSelesai', Crypt::encryptString($dt->id)) }}" class="btn btn-primary w-md waves-effect waves-light">CHECKOUT</a>
-                                                @elseif($dt->status == "SELESAI")
+                                                @elseif($midtrans -> transaction_status == "pending")
+                                                <a href="#" class="btn btn-primary w-md waves-effect waves-light disabled">PENDING</a>
+                                                @elseif($dt->status == "SELESAI" && $midtrans -> transaction_status == "settlement")
                                                 <a href="#" class="btn btn-primary w-md waves-effect waves-light disabled">SUDAH CHECKOUT</a>
                                                 @elseif($dt->status == "BATAL")
                                                 <a href="#" class="btn btn-danger w-md waves-effect waves-light disabled">CANCEL</a>
