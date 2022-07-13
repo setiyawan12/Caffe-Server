@@ -89,7 +89,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('product.store') }}" role="form">
+                <form method="POST" action="{{ route('product.store') }}" role="form" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -130,7 +130,6 @@
                             <textarea class="form-control" rows="3" placeholder="Deskripsi ..."
                                 name="deskripsi"></textarea>
                         </div>
-
                         <div class="form-group">
                             <label for="exampleInputFile">File Gambar</label>
                             <div class="input-group">
