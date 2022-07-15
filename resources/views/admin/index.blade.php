@@ -216,13 +216,13 @@
                             <ul>
                                 <li>
                                     <a href="{{ route('order.index') }}">
-                                    <i data-feather="dollar-sign"></i>
+                                        <i data-feather="dollar-sign"></i>
                                         <span data-key="t-calendar">Order Cash</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('ordermidtrans.index') }}">
-                                    <i data-feather="credit-card"></i>
+                                        <i data-feather="credit-card"></i>
                                         <span data-key="t-chat">Order Cashless</span>
                                     </a>
                                 </li>
@@ -236,13 +236,13 @@
                             <ul>
                                 <li>
                                     <a href="{{ route('transaction.index') }}">
-                                    <i data-feather="dollar-sign"></i>
+                                        <i data-feather="dollar-sign"></i>
                                         <span data-key="t-calendar">Cash</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('midtrans.index') }}">
-                                    <i data-feather="credit-card"></i>
+                                        <i data-feather="credit-card"></i>
                                         <span data-key="t-chat">Cashless</span>
                                     </a>
                                 </li>
@@ -382,7 +382,6 @@
                         value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
                     <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
                 </div>
-
                 <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
 
                 <div class="form-check sidebar-setting">
@@ -457,45 +456,41 @@
 
     <!-- Datatable init js -->
     <script src="{{asset('core/js/pages/datatables.init.js')}}"></script>
-    </script>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
-            cluster: '{{env("PUSHER_APP_CLUSTER")}}',
-            encrypted: true
-        });
-        var channel = pusher.subscribe('android-channel');
-        channel.bind('App\\Events\\Android', function (data) {
-            //   alert(data.message);
-            console.log(data);
+        function swalAlert(data, intent) {
             swal({
                 title: data.message,
                 text: data.tittle,
-                icon: "info"
+                icon: "info",
             }).then(function () {
-                window.location.assign('/transaction')
+                window.location.assign(intent)
+            })
+        }
+
+        function trigger() {
+            const pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+                cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+                encrypted: true
             });
-        });
+            return pusher;
+        }
+
+        function sub(channel) {
+            const cha = trigger().subscribe(channel)
+            return cha
+        }
+        let cashNotif = sub('android-channel');
+        cashNotif.bind('App\\Events\\Android', function (data) {
+            swalAlert(data, '/transaction');
+        })
+
+        let cashlessNotif = sub('midtrans-channel')
+        cashlessNotif.bind('App\\Events\\AndroidMidtrans', function (data) {
+            swalAlert(data, 'midtrans')
+        })
+
     </script>
-        <script>
-        var midtrans = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
-            cluster: '{{env("PUSHER_APP_CLUSTER")}}',
-            encrypted: true
-        });
-        var channel1 = midtrans.subscribe('midtrans-channel');
-        channel1.bind('App\\Events\\AndroidMidtrans', function (data) {
-            //   alert(data.message);
-            console.log(data);
-            swal({
-                title: data.message,
-                text: data.tittle,
-                icon: "info"
-            }).then(function () {
-                window.location.assign('/midtrans')
-            });
-        });
-    </script>
-</body>
 
 </html>

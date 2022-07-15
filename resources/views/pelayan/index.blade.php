@@ -21,7 +21,8 @@
 
     <!-- Bootstrap Css -->
     <link href="{{ asset ('core/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/6.6.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/6.6.95/css/materialdesignicons.min.css">
 
     <!-- Icons Css -->
     <link href="{{ asset ('core/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -32,7 +33,6 @@
 
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
-    @livewireStyles
 </head>
 
 <body data-layout-mode="dark" data-sidebar="dark" data-topbar="dark">
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                             <div data-simplebar style="max-height: 230px;">
-                            <a href="#!" class="text-reset notification-item">
+                                <a href="#!" class="text-reset notification-item">
                                     <div class="d-flex">
                                         <div class="flex-shrink-0 me-3">
                                             <img src="{{ asset ('core/images/users/avatar-3.jpg')}}"
@@ -428,31 +428,32 @@
     <script src="{{ asset ('core/js/pages/dashboard.init.js')}}"></script>
     <script src="{{ asset ('core/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script src="{{ asset ('core/js/app.js')}}"></script>
+    <script src="{{ asset ('core/js/notification1.js')}}"></script>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script src="{{ asset ('core/js/notification1.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
-            cluster: '{{env("PUSHER_APP_CLUSTER")}}',
-            encrypted: true
-        });
-        var channel = pusher.subscribe('notify-channel');
-        channel.bind('App\\Events\\Notify', function (data) {
-            //   alert(data.message);
-            // Pusher.logToConsole = true;
-            console.log(data);
+        function swalAlert(data) {
             swal({
                 title: data.message,
                 text: data.tittle,
                 icon: "info",
-
             }).then(function () {
                 location.reload();
+            })
+        }
+        function trigger() {
+            var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+                cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+                encrypted: true
             });
+            return pusher;
+        }
+        var channel = trigger().subscribe('notify-channel');
+        channel.bind('App\\Events\\Notify', function (data) {
+            swalAlert(data);
         });
-
     </script>
-    @livewireScripts
-
 </body>
 
 </html>

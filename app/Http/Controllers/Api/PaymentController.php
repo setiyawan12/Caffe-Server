@@ -106,6 +106,9 @@ class PaymentController extends Controller
         $transaksis = MidtransTransaction::with(['user'])->whereHas('user', function ($query) use ($id){
             $query -> whereId($id);
         })->orderBy("id","desc")->get();
+        $check = MidtransTransaction::with(['user'])->whereHas('user', function ($query) use ($id){
+            $query -> whereId($id);
+        })->orderBy("id","desc")->get()->count();
 
         foreach ($transaksis as $transaksi) {
             $details = $transaksi->details;
@@ -113,14 +116,17 @@ class PaymentController extends Controller
                 $detail->produk;
             }
         }
-        if (!empty($transaksis)) {
+        if ($check > 0) {
             return response()->json([
-                'success' => 1,
-                'message' => 'Transaksi Berhasil',
+                'success' => 200,
+                'message' => 'Get History',
                 'transaksis' => collect($transaksis)
             ]);
-        } else {
-            $this->error('Transaksi gagal');
+            } else {
+                return response()->json([
+                    'success' => 0,
+                    'message' => 'kosong',
+                ]);
         }
     }
 

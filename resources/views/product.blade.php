@@ -102,13 +102,13 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Harga</label>
-                                    <input type="text" class="form-control" placeholder="Harga ..." name="harga">
+                                    <input type="number" class="form-control" placeholder="Harga ..." name="harga" min="1" max="100000" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Pilih Category</label>
-                                    <select class="form-control" name="category_id">
+                                    <select class="form-control" name="category_id" required>
                                         <option value="1">Food</option>
                                         <option value="2">Drink</option>
                                         <option value="3">Snack</option>
@@ -120,7 +120,7 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Stock</label>
-                                    <input type="text" class="form-control" placeholder="Stock ..." name="stock">
+                                    <input type="number" class="form-control" placeholder="Stock ..." name="stock" min="1" required>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                         <div class="form-group">
                             <label>Deskripsi</label>
                             <textarea class="form-control" rows="3" placeholder="Deskripsi ..."
-                                name="deskripsi"></textarea>
+                                name="deskripsi" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">File Gambar</label>
@@ -158,11 +158,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </button>
                 </div>
-                <form method="POST" action="#" role="form" id="form-edit">
+                <form method="POST" action="#" role="form" id="form-edit" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
                         <input type="hidden" name ="product_id" id="product_id">
+                        <input type="hidden" name ="public_id" id="public_id">
                         <div class="form-group">
                             <label>Nama</label>
                             <input type="text" class="form-control" id="name" placeholder="Nama"
@@ -177,6 +178,20 @@
                             <label>Stock</label>
                             <input type="text" class="form-control" id="stock" placeholder="Stock"
                                 name="stock" required>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label>VALUE IMAGE</label>
+                            <input type="text" class="form-control" id="image" placeholder="Image"
+                                name="image" required>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="inputImage">File Gambar</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputImage" name="image" required>
+                                    <label class="custom-file-label" for="inputImage">Choose file</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -213,8 +228,11 @@
                 success: function (response) {
                     $('#name').val(response.data.name);
                     $('#product_id').val(response.data.id);
+                    $('#public_id').val(response.data.public_id);
                     $('#harga').val(response.data.harga);
                     $('#stock').val(response.data.stock);
+                    // $('#image').val(response.data.image);
+                    $('#inputImage').val(response.data.image);
                 }
             })
         }
@@ -224,7 +242,7 @@
         function update(){
             let id = $('#form-edit').find('#product_id').val()
             let formData = $('#form-edit').serialize()
-            console.log(formData);
+            // console.log(formData);
 
             $.ajax({
                 url:`/product/${id}`,
@@ -232,6 +250,7 @@
                 data:formData,
                 success:function(data){
                     $('editModal').modal('hide')
+                    console.log(data);
                     window.location.assign('/product')
                 },
                 error:function(error){
