@@ -464,6 +464,7 @@
                 title: data.message,
                 text: data.tittle,
                 icon: "info",
+                width:2000
             }).then(function () {
                 window.location.assign(intent)
             })

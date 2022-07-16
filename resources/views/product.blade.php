@@ -67,7 +67,8 @@
                                                 class="bx bx-block font-size-16 align-middle me-2"></i>Delete</button>
                                         <button onclick="edit({{ $data->id }})"
                                             class="btn btn-warning waves-effect waves-light">
-                                            <i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>Update</button>
+                                            <i
+                                                class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>Update</button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -102,7 +103,8 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Harga</label>
-                                    <input type="number" class="form-control" placeholder="Harga ..." name="harga" min="1" max="100000" required>
+                                    <input type="number" class="form-control" placeholder="Harga ..." name="harga"
+                                        min="1" max="100000" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -120,21 +122,23 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Stock</label>
-                                    <input type="number" class="form-control" placeholder="Stock ..." name="stock" min="1" required>
+                                    <input type="number" class="form-control" placeholder="Stock ..." name="stock"
+                                        min="1" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea class="form-control" rows="3" placeholder="Deskripsi ..."
-                                name="deskripsi" required></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Deskripsi ..." name="deskripsi"
+                                required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">File Gambar</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="image"
+                                        required>
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                             </div>
@@ -158,40 +162,26 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </button>
                 </div>
-                <form method="POST" action="#" role="form" id="form-edit" enctype="multipart/form-data">
+                <form method="POST" name="formUpdate" action="#" role="form" id="form-edit"
+                    enctype="multipart/form-data" >
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
-                        <input type="hidden" name ="product_id" id="product_id">
-                        <input type="hidden" name ="public_id" id="public_id">
+                        <input type="hidden" name="product_id" id="product_id">
+                        <input type="hidden" name="public_id" id="public_id">
                         <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nama"
-                                name="name" required>
+                            <input type="text" class="form-control" id="name" placeholder="Nama" name="name" required>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="text" class="form-control" id="harga" placeholder="Price"
-                                name="harga" required>
+                            <input type="number" class="form-control" id="harga" placeholder="Price" name="harga"
+                                required min="1" max="100000">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text" class="form-control" id="stock" placeholder="Stock"
-                                name="stock" required>
-                        </div>
-                        <!-- <div class="form-group">
-                            <label>VALUE IMAGE</label>
-                            <input type="text" class="form-control" id="image" placeholder="Image"
-                                name="image" required>
-                        </div> -->
-                        <div class="form-group">
-                            <label for="inputImage">File Gambar</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputImage" name="image" required>
-                                    <label class="custom-file-label" for="inputImage">Choose file</label>
-                                </div>
-                            </div>
+                            <input type="number" class="form-control" id="stock" placeholder="Stock" name="stock"
+                                required min="1">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -218,6 +208,7 @@
                 }
             })
         };
+
     </script>
     <script>
         function edit(id) {
@@ -228,32 +219,28 @@
                 success: function (response) {
                     $('#name').val(response.data.name);
                     $('#product_id').val(response.data.id);
-                    $('#public_id').val(response.data.public_id);
                     $('#harga').val(response.data.harga);
                     $('#stock').val(response.data.stock);
-                    // $('#image').val(response.data.image);
-                    $('#inputImage').val(response.data.image);
                 }
             })
         }
 
     </script>
     <script>
-        function update(){
+        function update() {
             let id = $('#form-edit').find('#product_id').val()
             let formData = $('#form-edit').serialize()
-            // console.log(formData);
-
+            
             $.ajax({
-                url:`/product/${id}`,
-                method:"PUT",
-                data:formData,
-                success:function(data){
+                url: `/product/${id}`,
+                method: "PUT",
+                data: formData,
+                success: function (data) {
                     $('editModal').modal('hide')
                     console.log(data);
                     window.location.assign('/product')
                 },
-                error:function(error){
+                error: function (error) {
                     console.log(error);
                 }
             })

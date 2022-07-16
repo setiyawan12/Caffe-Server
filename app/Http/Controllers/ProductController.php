@@ -14,15 +14,15 @@ class ProductController extends Controller
         return view ('product')->with($produk);
     }
     public function store(Request $request){
-        // $fileName = Carbon::now()->format('Y-m-d H:i:s').'-'.$request->name;
-        // $uploadedFile = $request->file('image')->storeOnCloudinaryAs('MyProduk',$fileName);
-        // $image = $uploadedFile->getSecurePath();
-        // $public_id = $uploadedFile->getPublicId();
+        $fileName = Carbon::now()->format('Y-m-d H:i:s').'-'.$request->name;
+        $uploadedFile = $request->file('image')->storeOnCloudinaryAs('MyProduk',$fileName);
+        $image = $uploadedFile->getSecurePath();
+        $public_id = $uploadedFile->getPublicId();
 
-        // $user = Produk::create(array_merge($request->all(), [
-        //      'image' =>$image,
-        //      'public_id'=>$public_id,
-        // ]));
+        $user = Produk::create(array_merge($request->all(), [
+             'image' =>$image,
+             'public_id'=>$public_id,
+        ]));
         return redirect('product');
     }
     public function destroy($id)
@@ -48,22 +48,12 @@ class ProductController extends Controller
             $uploadedFile = $request->file('image')->storeOnCloudinaryAs('MyProduk',$fileName);
             $image = $uploadedFile->getSecurePath();
             $public_id = $uploadedFile->getPublicId();
-            // dd($public_id);
         }
-        var_dump($produk);
         $produk->update([
             'name' =>$request->name,
-            'image' =>$request->image ? $image :$produk->image,
-            'public_id' =>$request->image ? $public_id:$produk->public_id
+            'harga'=>$request->harga,
+            'stock'=>$request->stock,
         ]);
-       
-        // Produk::where('id',$id)->update(
-        //     [
-        //         'name' => $request->name,
-        //         'harga' => $request->harga,
-        //         'stock'=> $request->stock,
-        //     ]
-        //     );
     }
 
     private function _validation(Request $request){
