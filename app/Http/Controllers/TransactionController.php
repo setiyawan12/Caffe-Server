@@ -44,7 +44,7 @@ class TransactionController extends Controller
     }
     public function cancel($id){
         $decodeID = Crypt::decryptString($id);
-        $transaksi = TransddaksiCustomer::with(['details.produk','user'])->where('id', $decodeID)->first();
+        $transaksi = TransaksiCustomer::with(['details.produk','user'])->where('id', $decodeID)->first();
         $transaksi->update([
             'status' => "BATAL"
         ]);

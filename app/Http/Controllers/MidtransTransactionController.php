@@ -64,8 +64,11 @@ public function detailtransaction($id){
     $name = "$dt->name";
     $order_id = "$dt->order_id";
     $midtrans = Midtrans::status($order_id);
+    $va_numbers = [];
+    if (isset($midtrans->va_numbers)) {
     $va_numbers = $midtrans->va_numbers[0];
-    return view ('midtransdetail', compact('dt','tittle','name','midtrans','va_numbers'));
+    // dd($midtrans);
+}    return view ('midtransdetail', compact('dt','tittle','name','midtrans','va_numbers'));
 }
 
 public function kirim($id){

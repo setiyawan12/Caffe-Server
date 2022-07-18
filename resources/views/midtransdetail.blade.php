@@ -131,9 +131,13 @@
                                                     <h5 class="font-size-14 mb-2">Transaction Status</h5>
                                                     <p class="mb-1 text-uppercase">{{$midtrans -> transaction_status}}</p>
                                                     <h5 class="font-size-14 mb-2 mt-3">Merchant Id</h5>
+                                                    @if($midtrans->payment_type == "bank_transfer")
                                                     @foreach($va_numbers as $number)
                                                     <p class="mb-1">{{$number}}</p>
                                                     @endforeach
+                                                    @elseif($midtrans->payment_type == "cstore")
+                                                    <p class="mb-1">{{$midtrans->payment_code}}</p>
+                                                    @endif
                                                 </div>
                                                 
                                             </div>

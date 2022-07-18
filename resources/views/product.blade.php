@@ -162,7 +162,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </button>
                 </div>
-                <form method="POST" name="formUpdate" action="#" role="form" id="form-edit"
+                <form method="POST" name="formUpdate" role="form" id="form-edit"
                     enctype="multipart/form-data" >
                     @csrf
                     @method('PUT')
@@ -183,11 +183,21 @@
                             <input type="number" class="form-control" id="stock" placeholder="Stock" name="stock"
                                 required min="1">
                         </div>
+                        <div class="form-group">
+                            <label for="UploadImage">File Gambar</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="UploadImage" name="image"
+                                        >
+                                    <label class="custom-file-label" for="UploadImage">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary waves-effect"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary btn-update" onclick="update()">Update</button>
+                        <button type="submit" class="btn btn-primary btn-update">Update</button>
                     </div>
                 </form>
             </div>
@@ -217,32 +227,14 @@
                 type: "GET",
                 url: "/product/" + id + "/edit",
                 success: function (response) {
+                    $('#form-edit').attr('action', `/product/${id}`)
                     $('#name').val(response.data.name);
                     $('#product_id').val(response.data.id);
                     $('#harga').val(response.data.harga);
                     $('#stock').val(response.data.stock);
+                    // $('#UploadImage').val(response.data.image);
                 }
             })
         }
 
-    </script>
-    <script>
-        function update() {
-            let id = $('#form-edit').find('#product_id').val()
-            let formData = $('#form-edit').serialize()
-            
-            $.ajax({
-                url: `/product/${id}`,
-                method: "PUT",
-                data: formData,
-                success: function (data) {
-                    $('editModal').modal('hide')
-                    console.log(data);
-                    window.location.assign('/product')
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            })
-        }
     </script>

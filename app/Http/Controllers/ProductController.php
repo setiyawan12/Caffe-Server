@@ -42,18 +42,23 @@ class ProductController extends Controller
 
     public function update(Request $request,$id){
         $produk = Produk::findOrFail($id);
-        if ($request->image) {
+        if (isset($request->image)) {
             Cloudinary::destroy($produk->public_id);
             $fileName = Carbon::now()->format('Y-m-d H:i:s').'-'.$request->name;
-            $uploadedFile = $request->file('image')->storeOnCloudinaryAs('MyProduk',$fileName);
+            $uploadedFile = $request->image->storeOnCloudinaryAs('MyProduk',$fileName);
             $image = $uploadedFile->getSecurePath();
             $public_id = $uploadedFile->getPublicId();
         }
+        
         $produk->update([
             'name' =>$request->name,
             'harga'=>$request->harga,
             'stock'=>$request->stock,
+            'image' => $request->image ? $image:$produk->image,
+            'public_id' => $request->image ? $public_id:$produk->public_id
         ]);
+
+        return redirect('product');
     }
 
     private function _validation(Request $request){

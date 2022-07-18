@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Dashboard | Jatinan Kopi</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset ('core/images/logo.png')}}">
@@ -51,7 +53,6 @@
                                     class="logo-txt">Jatinan Kafe</span>
                             </span>
                         </a>
-
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
                                 <img src="{{ asset ('core/images/logo.png')}}" alt="" height="24">
