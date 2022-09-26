@@ -143,12 +143,9 @@ class TransaksiController extends Controller
     public function batal($id){
         $transaksi = Transaksi::with(['details.produk','user'])->where('id', $id)->first();
         if ($transaksi){
-            // update data
-
             $transaksi->update([
                 'status' => "BATAL"
             ]);
-            $this->Notif("transaksi di batalkan","transaksi produk ".$transaksi->details[0]->produk->name." berhasil di batalkan", $transaksi->user->fcm);
 
             return response()->json([
                 'success' => 1,

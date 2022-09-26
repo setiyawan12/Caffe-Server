@@ -21,6 +21,14 @@ use App\Http\Controllers\Midtrans\Config;
 class MidtransTransactionController extends Controller
 {   
  public function index(){
+    // $data = MidtransTransaction::whereStatus('MENUNGGU')->where('date',$current_date)-> get();
+    // if($request->start_date && $request->end_date){
+    //     $data = MidtransTransaction::whereBetween('date', [$request->start_date, $request->end_date])->whereStatus('MENUNGGU')->orderBy('date','DESC')->get();
+    // }
+    // $transaksiSelesai = MidtransTransaction::where("status", "NOT LIKE", "%MENUNGGU%")->whereDate('date',$current_date)->get();
+    // if($request->start_date1 && $request->end_date1){
+    //     $transaksiSelesai = MidtransTransaction::whereBetween('date', [$request->start_date1, $request->end_date1])->where("status", "NOT LIKE", "%MENUNGGU%")->orderBy('date','DESC')->get();
+    // }
     $transaksiPending['listpending'] = MidtransTransaction::whereStatus("MENUNGGU")->get();
     $transaksiSelesai['listDone'] = MidtransTransaction::where("status", "NOT LIKE", "%MENUNGGU%")->get();
     return view('transactionmidtrans')->with($transaksiPending)->with($transaksiSelesai);

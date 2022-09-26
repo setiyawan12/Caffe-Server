@@ -9,6 +9,7 @@ use App\TransaksiCustomer;
 use App\TransaksiCustomerDetail;
 use Pusher\Pusher;
 use App\Produk;
+use App\Meja;
 
 class CustomerTransaksiController extends Controller
 {
@@ -27,7 +28,7 @@ class CustomerTransaksiController extends Controller
                     'tittle'=>'New Order...'
                 );
                 $pusher->trigger('android-channel', 'App\\Events\\Android', $data);
-        $validasi = Validator::make($request->all(),[
+             $validasi = Validator::make($request->all(),[
             'customer_id' => 'required',
             'total_item' => 'required',
             'total_harga'=>'required',
@@ -39,13 +40,18 @@ class CustomerTransaksiController extends Controller
             $hasil = $validasi->errors()->all();
             return $this->error($hasil[0]);
         }
-
         $kode_payment = "INV/PYM/" . now()->format('Y-m-d') . "/" . rand(100, 999);
         $kode_trx = "INV/PYM/" . now()->format('Y-m-d') . "/" . rand(100, 999);
         $kode_unik = rand(100, 999);
         $status = "MENUNGGU";
         $expired_at = now()->addDay();
         $pesanan = "Order";
+
+        $getDataMeja = $request->meja;
+        $meja = Meja::find($getDataMeja);
+        $meja->update([
+            'status' => 'Aktif'
+        ]);
 
         $dataTransaksi = array_merge($request->all(),[
             'kode_payment' => $kode_payment,
@@ -71,7 +77,6 @@ class CustomerTransaksiController extends Controller
             $product->update([
                 'stock' => $newStock
             ]);
-
         }
         if (!empty($transaksi) && !empty($transaksiDetail)) {
             \DB::commit();
@@ -114,6 +119,22 @@ class CustomerTransaksiController extends Controller
                 ]);
         }
         
+    }
+    public function batal($id){
+        $transaksi = TransaksiCustomer::with(['details.produk','user'])->where('id', $id)->first();
+        if ($transaksi){
+            $transaksi->update([
+                'status' => "BATAL"
+            ]);
+
+            return response()->json([
+                'success' => 1,
+                'message' => 'Berhasil',
+                'transaksi' => $transaksi
+            ]);
+        } else {
+            return $this->error('Gagal memuat transaksi');
+        }
     }
 
     public function error($pesan) {

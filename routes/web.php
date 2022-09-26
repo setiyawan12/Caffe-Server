@@ -30,6 +30,9 @@ Route::group(['middleware' =>['auth','role:admin']], function(){
     Route::get('/transaction/kirim/{id}', 'TransactionController@kirim')->name('transaksiKirim');
     Route::get('/transaction/selesai/{id}', 'TransactionController@selesai')->name('transaksiSelesai');
     Route::get('/transaction/detail/{id}', 'TransactionController@detailtransaction')->name('transaksiDetail');
+    Route::get('/transaction/details/{id}', 'TransactionController@detail')->name('transaksiDetails');
+    Route::get('/transaction/details/selesai/{id}', 'TransactionController@detailpesananselesai')->name('transaksiDetailSelesai');
+    Route::post('/transaction/details/scan','TransactionController@detailtransactionScan')->name('transaksiDetailsScan');
 });
 Route::group(['middleware' =>['auth','role:admin']], function(){
     Route::resource('/midtrans', 'MidtransTransactionController');
@@ -38,6 +41,17 @@ Route::group(['middleware' =>['auth','role:admin']], function(){
     Route::get('/midtrans/detail/{id}', 'MidtransTransactionController@detailtransaction')->name('midtransDetail');
     Route::get('/midtrans/kirim/{id}', 'MidtransTransactionController@kirim')->name('midtransKirim');
     Route::get('/midtrans/selesai/{id}', 'MidtransTransactionController@selesai')->name('midtransSelesai');
+});
+Route::group(['middleware' =>['auth','role:admin']], function(){
+    Route::resource('/scanner', 'ScannerController');
+    Route::resource('/generator', 'QrGeneratorController');
+    Route::resource('/filter','FilteringController');
+    Route::resource('/picker','DatePickerContrroller');
+    Route::resource('/table','MejaController');
+    Route::get('/addmeja','MejaController@addMeja')->name('addMeja');
+    Route::post('/add','MejaController@add')->name('mejaAdd');
+    Route::get('/table/status/aktif/{id}', 'MejaController@updateAktif')->name('updateTable');
+    Route::get('/table/status/no-aktif/{id}', 'MejaController@updateNonAktif')->name('updateTableNonAktif');
 });
 Route::group(['middleware' =>['auth','role:admin']], function(){
     Route::resource('/order', 'PemesananController');
@@ -60,9 +74,9 @@ Route::group(['middleware' =>['auth','role:pelayan']],function(){
     Route::resource('/pelayan', 'PelayanController');
     Route::resource('/orderpelayan','OrderPelayanController');
     Route::get('/pesanancustomer/{id}', 'OrderPelayanController@detailpesanan');
+    Route::get('/pesanancustomer/confirm/{id}', 'OrderPelayanController@confirm')->name('pesanancustomerConfirm');
     Route::get('/pesanancustomer/kirim/{id}', 'OrderPelayanController@kirim')->name('pesanancustomerkirim');
+    Route::get('/pesanancustomer/cancle/{id}','OrderPelayanController@cancel')->name('pesanancustomerCancle');
 });
-
-
 
 // Route::get('/midtrans','ExampleController@order');

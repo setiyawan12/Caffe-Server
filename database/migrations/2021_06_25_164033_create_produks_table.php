@@ -22,6 +22,7 @@ class CreateProduksTable extends Migration
             $table->Integer('category_id')->unsigned();
             $table->string('image');
             $table->string('public_id');
+            $table->date('date')->default(\Carbon\Carbon::now()->format('Y-m-d'));
             $table->timestamps();
         });
     }

@@ -3,6 +3,9 @@
 <div class="container-fluid">
 
     <!-- start page title -->
+    @error('stock')
+    {{$message}}
+    @enderror
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -95,8 +98,11 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama"
-                                name="name" required>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                id="exampleInputEmail1" placeholder="Nama" name="name" required>
+                            @error('name')
+                            <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="row">
                             <div class="col-sm-4">
@@ -130,14 +136,15 @@
 
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea class="form-control" rows="3" placeholder="Deskripsi ..." name="deskripsi"
-                                required></textarea>
+                            <textarea class="form-control" rows="3"
+                                placeholder="Deskripsi ..." name="deskripsi" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">File Gambar</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="image"
+                                    <input type="file" class="custom-file-input"
+                                        accept="image/png, image/gif, image/jpeg" id="exampleInputFile" name="image"
                                         required>
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
@@ -162,8 +169,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </button>
                 </div>
-                <form method="POST" name="formUpdate" role="form" id="form-edit"
-                    enctype="multipart/form-data" >
+                <form method="POST" name="formUpdate" role="form" id="form-edit" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -187,8 +193,7 @@
                             <label for="UploadImage">File Gambar</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="UploadImage" name="image"
-                                        >
+                                    <input type="file" class="custom-file-input" id="UploadImage" name="image">
                                     <label class="custom-file-label" for="UploadImage">Choose file</label>
                                 </div>
                             </div>

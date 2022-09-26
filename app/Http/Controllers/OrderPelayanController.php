@@ -9,7 +9,8 @@ use Pusher\Pusher;
 class OrderPelayanController extends Controller
 {
     public function index(){
-        $oderPending['orderPending'] = TransaksiCustomer::wherePesanan("Waiting Order")->get();
+        $oderPending['orderPending'] = TransaksiCustomer::where('status',"MENUNGGU")->orWhere('status',"PROSES")->orderBy('created_at','DESC')->get();
+        // $oderPending['orderPending'] = TransaksiCustomer::all();
         $customer['customer'] = TransaksiCustomer::all();
         return view('orderpelayan')->with($customer)->with($oderPending);
     }
@@ -44,4 +45,21 @@ class OrderPelayanController extends Controller
         ]);
         return redirect('orderpelayan');
     }
+
+    public function confirm($id){
+        $transaksi = TransaksiCustomer::with(['details.produk','user'])->where('id', $id)->first();
+        $transaksi->update([
+            'status' => "PROSES",
+            'pesanan' => "Oder Proses"
+        ]);
+        return redirect('orderpelayan');
+    }
+    public function cancel($id){
+        $transaksi = TransaksiCustomer::with(['details.produk','user'])->where('id', $id)->first();
+        $transaksi->update([
+            'status' => "BATAL",
+            'pesanan' => "Oder Cancel"
+        ]);
+        return redirect('orderpelayan');
+        }
 }

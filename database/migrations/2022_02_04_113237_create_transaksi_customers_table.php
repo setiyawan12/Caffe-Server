@@ -26,6 +26,7 @@ class CreateTransaksiCustomersTable extends Migration
             $table->string('meja')->nullable();
             $table->string('name')->nullable();
             $table->string('deskripsi')->nullable();
+            $table->date('date')->default(\Carbon\Carbon::now()->format('Y-m-d'));
             $table->timestamp('expired_at')->nullable();
             $table->timestamps();
         });

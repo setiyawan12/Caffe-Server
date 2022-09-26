@@ -32,9 +32,17 @@
         type="text/css" />
     <link href="{{ asset ('core/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}"
         rel="stylesheet" type="text/css" />
+
+    <!-- choices css -->
+    <link href="{{asset('core/libs/choices.js/public/assets/styles/choices.min.css')}}" rel="stylesheet"
+        type="text/css" />
+
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{{asset('core/libs/flatpickr/flatpickr.min.css')}}">
+    core/libs/flatpickr/flatpickr.min.css
 </head>
 
-<body data-layout-mode="dark" data-sidebar="dark" data-topbar="dark">
+<body data-layout-mode="light" data-sidebar="light" data-topbar="light">
 
     <!-- <body data-layout="horizontal"> -->
     <!-- Begin page -->
@@ -158,8 +166,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-soft-light border-start border-end"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -210,6 +216,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('table.index') }}">
+                                <i data-feather="menu"></i>
+                                <span data-key="t-dashboard">Table</span>
+                            </a>
+                        </li>
+                        <!-- <li>
                             <a href="javascript: void(0);" class="has-arrow">
                                 <i data-feather="umbrella"></i>
                                 <span data-key="t-apps">Order</span>
@@ -228,7 +240,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow">
                                 <i data-feather="shopping-bag"></i>
@@ -455,6 +467,20 @@
     <script src="{{asset('core/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('core/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
+    <script src="{{asset('core/libs/pace-js/pace.min.js')}}"></script>
+
+
+    <script src="{{asset('core/libs/choices.js/public/assets/scripts/choices.min.js')}}"></script>
+
+    <!-- datepicker js -->
+    <script src="{{asset('core/libs/flatpickr/flatpickr.min.js')}}"></script>
+
+    <!-- apexcharts js -->
+    <script src="{{asset('core/libs/apexcharts/apexcharts.min.js')}}"></script>
+
+    <!-- apexcharts init -->
+    <!-- <script src="{{asset('core/js/pages/apexcharts.init.js')}}"></script> -->
+
     <!-- Datatable init js -->
     <script src="{{asset('core/js/pages/datatables.init.js')}}"></script>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
@@ -465,7 +491,7 @@
                 title: data.message,
                 text: data.tittle,
                 icon: "info",
-                width:2000
+                width: 2000
             }).then(function () {
                 window.location.assign(intent)
             })
@@ -494,5 +520,7 @@
         })
 
     </script>
+
+    @yield('script')
 
 </html>

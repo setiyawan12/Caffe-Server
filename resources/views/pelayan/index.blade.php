@@ -35,7 +35,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
 </head>
 
-<body data-layout-mode="dark" data-sidebar="dark" data-topbar="dark">
+<body data-layout-mode="light" data-sidebar="light" data-topbar="light">
 
     <!-- <body data-layout="horizontal"> -->
 
@@ -82,9 +82,7 @@
                         </div>
                     </form>
                 </div>
-
                 <div class="d-flex">
-
                     <div class="dropdown d-inline-block d-lg-none ms-2">
                         <button type="button" class="btn header-item" id="page-header-search-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

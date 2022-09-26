@@ -14,15 +14,29 @@ class ProductController extends Controller
         return view ('product')->with($produk);
     }
     public function store(Request $request){
+        // dd($request->image);
+
         $fileName = Carbon::now()->format('Y-m-d H:i:s').'-'.$request->name;
         $uploadedFile = $request->file('image')->storeOnCloudinaryAs('MyProduk',$fileName);
         $image = $uploadedFile->getSecurePath();
         $public_id = $uploadedFile->getPublicId();
+        // dd($image);
+
+        $rules = [
+            'name' => 'required'
+        ];
+        $message = [
+            'required' => 'not empty'
+        ];
+
+        $this->validate($request, $rules, $message);
 
         $user = Produk::create(array_merge($request->all(), [
+             'stock' => preg_replace('/^0+/','', $request->stock),
              'image' =>$image,
              'public_id'=>$public_id,
         ]));
+        
         return redirect('product');
     }
     public function destroy($id)
@@ -53,11 +67,10 @@ class ProductController extends Controller
         $produk->update([
             'name' =>$request->name,
             'harga'=>$request->harga,
-            'stock'=>$request->stock,
+            'stock'=>preg_replace('/^0+/','', $request->stock),
             'image' => $request->image ? $image:$produk->image,
             'public_id' => $request->image ? $public_id:$produk->public_id
         ]);
-
         return redirect('product');
     }
 

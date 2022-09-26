@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => public_path(''),
         ],
 
         'public' => [
@@ -63,6 +63,12 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
+        ],
+        'cloudinary' => [// NOT SURE ARE THESE PARAMS VALID ?
+            'driver'     => 'cloudinary',
+            'api_key'        => env('CLOUDINARY_API_KEY'),
+            'api_secret'     => env('CLOUDINARY_API_SECRET'),
+            'cloud_name'     => env('CLOUDINARY_API_NAME'),
         ],
 
     ],
